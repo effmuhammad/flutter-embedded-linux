@@ -212,8 +212,17 @@ else()
   )
 endif()
 if(FLUTTER_ENGINE_SOURCE_DIR)
+  set(_FLUTTER_ENGINE_EMBEDDER_INCLUDE_DIR
+    "${CMAKE_CURRENT_BINARY_DIR}/flutter-engine-headers")
+  file(MAKE_DIRECTORY
+    "${_FLUTTER_ENGINE_EMBEDDER_INCLUDE_DIR}/flutter/shell/platform/embedder")
+  configure_file(
+    "${FLUTTER_ENGINE_SOURCE_DIR}/flutter/shell/platform/embedder/embedder.h"
+    "${_FLUTTER_ENGINE_EMBEDDER_INCLUDE_DIR}/flutter/shell/platform/embedder/embedder.h"
+    COPYONLY
+  )
   target_include_directories(${TARGET} BEFORE PRIVATE
-    "${FLUTTER_ENGINE_SOURCE_DIR}"
+    "${_FLUTTER_ENGINE_EMBEDDER_INCLUDE_DIR}"
   )
 endif()
 
