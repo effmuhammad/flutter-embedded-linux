@@ -50,6 +50,7 @@ Install Chromium `depot_tools` and make `gclient` available in `PATH`. For examp
 ```sh
 git clone https://chromium.googlesource.com/chromium/tools/depot_tools.git "$HOME/depot_tools"
 export PATH="$HOME/depot_tools:$PATH"
+"$HOME/depot_tools/ensure_bootstrap"
 export FLUTTER_ROOT=/path/to/flutter-3.50.0
 ```
 
