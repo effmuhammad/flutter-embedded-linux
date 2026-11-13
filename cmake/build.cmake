@@ -211,6 +211,11 @@ else()
       "src/flutter/shell/platform/common/public"
   )
 endif()
+if(FLUTTER_ENGINE_SOURCE_DIR)
+  target_include_directories(${TARGET} BEFORE PRIVATE
+    "${FLUTTER_ENGINE_SOURCE_DIR}"
+  )
+endif()
 
 set(THIRD_PARTY_DIRS "${CMAKE_CURRENT_SOURCE_DIR}/src/third_party")
 set(RAPIDJSON_INCLUDE_DIRS "${THIRD_PARTY_DIRS}/rapidjson/include/")

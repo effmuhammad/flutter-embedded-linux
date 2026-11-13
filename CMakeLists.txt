@@ -22,6 +22,13 @@ option(ENABLE_VSYNC "Enable embedder vsync" OFF)
 option(BUILD_ELINUX_SO "Build .so file of elinux embedder" OFF)
 option(ENABLE_ELINUX_EMBEDDER_LOG "Enable logger of eLinux embedder" ON)
 option(FLUTTER_RELEASE "Build Flutter Engine with release mode" OFF)
+set(FLUTTER_ENGINE_SOURCE_DIR "" CACHE PATH
+    "Path to Flutter's engine/src source directory")
+if(FLUTTER_ENGINE_SOURCE_DIR AND
+   NOT EXISTS "${FLUTTER_ENGINE_SOURCE_DIR}/flutter/shell/platform/embedder/embedder.h")
+  message(FATAL_ERROR
+    "FLUTTER_ENGINE_SOURCE_DIR must contain flutter/shell/platform/embedder/embedder.h")
+endif()
 
 if(NOT BUILD_ELINUX_SO)
   # Load the user project.
