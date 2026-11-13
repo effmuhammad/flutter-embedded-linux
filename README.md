@@ -71,7 +71,7 @@ Build the debug x64 engine and the DRM-GBM runner:
   ./flutter/tools/gn --runtime-mode=debug --unoptimized \
     --embedder-for-target --disable-desktop-embeddings \
     --no-build-embedder-examples --enable-fontconfig
-ninja -C out/host_debug_unopt -j4
+ninja -C out/host_debug_unopt -j4 libflutter_engine.so
 )
 
 cd /path/to/flutter-embedded-linux
