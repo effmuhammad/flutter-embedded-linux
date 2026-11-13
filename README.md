@@ -96,6 +96,7 @@ cd /path/to/flutter-app
 From an active text virtual terminal, with no X11/Wayland compositor using the DRM device, launch it directly:
 
 ```sh
+LD_LIBRARY_PATH="/path/to/flutter-embedded-linux/build${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}" \
 FLUTTER_DRM_DEVICE=/dev/dri/card0 \
   /path/to/flutter-embedded-linux/build/flutter-drm-gbm-backend \
   --bundle=/absolute/path/to/flutter-app/build/linux/x64/debug/bundle
